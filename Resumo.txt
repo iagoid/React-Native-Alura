@@ -1,0 +1,61 @@
+Listar AVDS
+C:\Users\Igor\AppData\Local\Android\Sdk\tools\emulator.exe -list-avds
+
+Abrir o emulador sem abrir o android studio
+C:\Users\Igor\AppData\Local\Android\Sdk\tools\emulator.exe -avd Pixel_2_API_24
+
+Todos os elementos são display flex por padrão
+
+
+
+
+Fontes
+https://docs.expo.dev/guides/using-custom-fonts/
+expo install expo-font @expo-google-fonts/nome_fonte
+
+
+
+
+
+
+A tag Button possui uma formatação padrão do android ou ios
+para fazer um botão customizavel utilizar
+<TouchableOpacity>
+    <Texto> {botao} </Texto>
+</TouchableOpacity> 
+
+
+
+
+
+
+A interrogação verifica se existe um style, se existir faz a verificação
+if (style?.fontWeight === "bold") {}
+
+
+
+
+
+Iterar pelas lista
+Como o FlatList cria a renderização da lista antes, pois este item não pode ficar dentro de uma ScrollView
+Então ele atribui os dados renderizados no template Item
+
+export default function Cesta({ topo, detalhes, itens }) {
+    return <>
+        <FlatList style={estilos.lista}
+            data={itens.lista}
+            renderItem={Item}
+            keyExtractor={({ id }) => id.toString()}
+            ListHeaderComponent={() => {
+                return <>
+                    <Topo {...topo} />
+                    <View style={estilos.cesta}>
+                        <Detalhes {...detalhes} />
+                        <Texto style={estilos.titulo}>{itens.titulo}</Texto>
+                    </View>
+                </>
+            }}
+        />
+    </>
+
+}

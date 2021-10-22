@@ -1,0 +1,1 @@
+C:\Users\Igor\AppData\Local\Android\Sdk\tools\emulator.exe -avd Pixel_2_API_24
